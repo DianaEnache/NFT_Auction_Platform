@@ -1,0 +1,29 @@
+{
+  "name": "nft_auction_platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaEnache/NFT_Auction_Platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DianaEnache/NFT_Auction_Platform/issues"
+  },
+  "homepage": "https://github.com/DianaEnache/NFT_Auction_Platform#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "chai": "^5.1.2",
+    "ethereum-waffle": "^4.0.10",
+    "hardhat": "^2.22.18"
+  }
+}
