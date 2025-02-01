@@ -16,6 +16,9 @@ contract Auction {
     mapping(address => uint) public bids;
     uint bidIncrement;
 
+    event BidPlaced(address bidder, uint amount);
+    event AuctionFinalized(address winner, uint amount);
+
     constructor(uint _startBlock, uint _endBlock, string memory _ipfsHash) {
         owner = msg.sender;
         auctionState = State.Running;
@@ -53,7 +56,7 @@ contract Auction {
         }
     }
 
-    function placeBid() public payable notOwner afterStart beforeEnd {
+    function placeBid() external payable notOwner afterStart beforeEnd {
         require(auctionState == State.Running);
         require(msg.value >= 1 ether);
 
@@ -68,13 +71,15 @@ contract Auction {
             highestBindingBid = min(currentBid, bids[highestBidder] + bidIncrement);
             highestBidder = msg.sender;
         }
+
+        emit BidPlaced(msg.sender, msg.value);
     }
 
-    function cancelAuction() public onlyOwner {
+    function cancelAuction() external onlyOwner {
         auctionState = State.Canceled;
     }
 
-    function finalizeAuction() public {
+    function finalizeAuction() external {
         require(auctionState == State.Canceled || block.number > endBlock);
         require(msg.sender == owner || bids[msg.sender] > 0);
 
@@ -101,5 +106,25 @@ contract Auction {
 
         bids[recipient] = 0;
         payable(recipient).transfer(value);
+
+        emit AuctionFinalized(highestBidder, highestBindingBid);
+    }
+
+    function getHighestBid() external view returns (uint) {
+        return highestBindingBid;
+    }
+
+    function getAuctionState() external view returns (State) {
+        return auctionState;
+    }
+
+    function getOwner() external view returns (address) {
+        return owner;
+    }
+
+    function getEndTime() external view returns (uint) {
+
+        return endBlock;
+
     }
 }
