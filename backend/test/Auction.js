@@ -98,7 +98,7 @@ describe('Auction', function () {
         });
 
         it("Should not allow bid on auction that has ended", async () => {
-            await ethers.provider.send("evm_mine", [(await ethers.provider.getBlock('latest')).timestamp + 3600]);
+            await ethers.provider.send("evm_mine", [(await ethers.provider.getBlock('latest')).timestamp + 60]);
             await expect(auction.connect(addr1).bid(0, {value: 10000000})).to.be.reverted;
         });
     });

@@ -1,8 +1,6 @@
-//import { ethers } from "ethers";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 let signer;
-// let provider, signer;
-//import { ethers } from "ethers"; // ✅ Import ethers.js
+
 const nftAbi=[
     "constructor(string tokenName, string symbol)",
     "event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)",
@@ -50,58 +48,23 @@ async function getAccess(){
     auctionContract = new ethers.Contract(auctionAddress, auctionAbi, signer);
 }
 
-// async function getAccess() {
-//     if (!window.ethereum) {
-//         console.log("MetaMask not detected. Please install it.");
-//         return;
-//     }
-
-//     // Request account access
-//     await window.ethereum.request({ method: "eth_requestAccounts" });
-
-//     provider = window.ethereum;
-//     signer = (await window.ethereum.request({ method: "eth_accounts" }))[0];
-
-//     console.log("✅ Connected with signer:", signer);
-
-//     if (!nftContract || !auctionContract) {
-//         nftContract = new ethers.Contract(nftAddress, nftAbi, signer);
-//         auctionContract = new ethers.Contract(auctionAddress, auctionAbi, signer);
-//         console.log("✅ Contracts initialized.");
-//     }
-// }
-
-
 async function list(){
     await getAccess();
     const id = document.getElementById("tokenId").value;
     const minPrice = document.getElementById("min-price-list").value;
     const duration = document.getElementById("list-duration").value;
-    await auctionContract.list(nftAddress, id, minPrice, duration).then(() => alert("succes"))
+    
+    console.log("Listing NFT:", id, "Min Price:", minPrice, "Duration:", duration, "minutes");
+
+    await auctionContract.list(nftAddress, id, minPrice, duration)
+        .then(() => alert("Succes! NFT Listed."))
         .catch((error) =>{
+            console.error("List Error:", error);
             if (error.data) alert(error.data.message);
             else alert(error);
         });
 }
-// async function list() {
-//     await getAccess(); // Ensure contract is ready
 
-//     if (!nftContract || !auctionContract) {
-//         alert("Contracts not initialized.");
-//         return;
-//     }
-
-//     const id = document.getElementById("tokenId").value;
-//     const minPrice = document.getElementById("min-price-list").value;
-//     const duration = document.getElementById("list-duration").value;
-
-//     try {
-//         await auctionContract.list(nftAddress, id, minPrice, duration);
-//         alert("NFT listed successfully!");
-//     } catch (error) {
-//         alert(error.data ? error.data.message : error.message);
-//     }
-// }
 
 
 async function end(){
@@ -125,15 +88,28 @@ async function bid(){
         });
 }
 
+
 async function approve(){
     await getAccess();
     const id = document.getElementById("token-id-approve").value;
-    await nftContract.approve(auctionAddress, id).then(() => alert("succes"))
+    console.log("Approving NFT ID:", id, " for auction contract:", auctionAddress);
+
+    await nftContract.approve(auctionAddress, id)
+        .then(async () => {
+            console.log("Succes! NFT Approved.");
+            // Verificare dacă NFT-ul a fost aprobat
+            const approvedAddress = await nftContract.getApproved(id);
+            console.log(`Approval check: NFT ID ${id} approved for ${approvedAddress}`);
+            alert("Succes! NFT Approved.");
+        })
         .catch((error) =>{
+            console.error("Approve Error:", error);
             if (error.data) alert(error.data.message);
             else alert(error);
         });
 }
+
+
 
 async function withdrawFunds(){
     await getAccess();

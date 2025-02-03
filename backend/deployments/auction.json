@@ -8,8 +8,8 @@
       "function bid(uint256 listingID) payable",
       "function end(uint256 listingId)",
       "function getListing(uint256 listingId) view returns (address, uint256, uint256, uint256, uint256)",
-      "function list(address nft, uint256 nftId, uint256 minPrice, uint256 numMinutes)",
-      "function onERC721Received(address operator, address from, uint256 tokenId, bytes data) returns (bytes4)",
+      "function list(address nft, uint256 nftId, uint256 minPrice, uint256 numHours)",
+      "function onERC721Received(address, address, uint256, bytes) pure returns (bytes4)",
       "function withdrawFunds()"
     ]
   }
