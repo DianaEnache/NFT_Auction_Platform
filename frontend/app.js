@@ -137,3 +137,19 @@ async function view(){
     document.getElementById("end-time-view").innerHTML = new Date(result[4].toNumber() * 1000);
 
 }
+
+async function setupEventListeners() {
+    await getAccess();
+
+    auctionContract.on("List", (lister, nft, nftId, listingId, minPrice, endTime, timestamp) => {
+        console.log(`📢 NFT ${nftId} listed at ${minPrice} ETH by ${lister}`);
+        alert(`📢 New listing: NFT ${nftId} at ${minPrice} ETH`);
+    });
+
+    auctionContract.on("Bid", (bidder, listingId, amount, timestamp) => {
+        console.log(`💰 New bid of ${ethers.utils.formatEther(amount)} ETH from ${bidder} on listing ${listingId}`);
+        alert(`💰 New bid: ${ethers.utils.formatEther(amount)} ETH from ${bidder}`);
+    });
+}
+
+setupEventListeners();
