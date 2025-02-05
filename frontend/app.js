@@ -49,6 +49,29 @@ async function getAccess(){
 }
 
 
+async function connectWallet() {
+    if (!window.ethereum) {
+        alert("Please install MetaMask!");
+        return;
+    }
+
+    try {
+        await provider.send("eth_requestAccounts", []);
+        signer = provider.getSigner();
+        const address = await signer.getAddress();
+        const balance = await provider.getBalance(address);
+        const balanceInEth = ethers.utils.formatEther(balance);
+
+        document.getElementById("wallet-address").innerText = `Address: ${address}`;
+        document.getElementById("wallet-balance").innerText = `Balance: ${balanceInEth} ETH`;
+
+    } catch (error) {
+        console.error("Error connecting wallet:", error);
+        alert("Failed to connect wallet.");
+    }
+}
+
+
 async function list() {
     await getAccess();
     const id = document.getElementById("tokenId").value;
