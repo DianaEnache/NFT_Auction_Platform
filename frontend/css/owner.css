@@ -34,20 +34,25 @@ body {
 /* Title Styling */
 h1 {
     color: #6a1b9a;
+    font-family: "Exo", serif;
+    text-transform: uppercase;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    
 }
 
 /* Input & Button Group */
 .input-group {
     margin: 12px 0;
     text-align: center;
+    
 }
 
 input {
     width: 100%;
     padding: 10px;
+    margin-bottom: 8px;
     margin-top: 8px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -69,6 +74,7 @@ button {
     border: none;
     background: #6a1b9a;
     color: white;
+    font-family: "Exo", serif;
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
@@ -81,7 +87,7 @@ button {
 
 
 button:hover {
-    background: #4a0072;
+    background: #c40de4;
     transform: scale(1.05);
 }
 
@@ -141,3 +147,4 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
+

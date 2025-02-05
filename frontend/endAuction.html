@@ -6,11 +6,11 @@
     <title>Owner - NFT Auction Platform</title>
     <link rel="stylesheet" href="css/owner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+     <!--Fonts-->
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -27,24 +27,14 @@
             </ul>
         </div>
     </nav>
-    <div class="container-panel">
-        <h1>Approve Auction</h1>
-        <div class="input-group">
-            <input type="number" id="token-id-approve" placeholder="NFT Token ID" />
-            <button onclick="approve()">Approve Transfer</button>
+        <div class="container-panel">
+            <h1>End Auction/Listing</h1>
+                <input type="number" id="listing-id-end" placeholder="Listing ID" min="0"/>
+                <button onclick="end()">End</button>
+            </div>
+            
         </div>
-        <div class="next-button">
-            <button onclick="goToNextPage()">Next</button>
-        </div>
-    </div>
-
-   
-
-    <script>
-        function goToNextPage() {
-            window.location.href = "listNFT.html"; 
-        }
-    </script>
+        
 
     <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
     <script type="text/javascript" src="app.js"></script>

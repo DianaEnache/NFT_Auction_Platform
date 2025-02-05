@@ -5,16 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
     background: url('../images/galaxy11.jpeg') no-repeat center center fixed;
     background-size: cover;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Navbar Styling */
 .navbar {
     width: 100%;
     background: rgba(36, 3, 68, 0.9);
@@ -34,6 +35,7 @@ body {
     align-items: center;
 }
 
+/* Navbar Logo */
 .logo {
     font-size: 22px;
     font-weight: bold;
@@ -46,6 +48,7 @@ body {
     margin-right: 10px;
 }
 
+/* Navbar Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -69,62 +72,68 @@ body {
     border-radius: 5px;
 }
 
-/* Home Container */
-.home-container {
-    background: rgba(255, 255, 255, 0.841);
+/* About Page Container */
+.about-container {
+    background: rgba(255, 255, 255, 0.95);
     padding: 50px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 85%; 
-    max-width: 900px; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 900px;
+    margin-top: 120px;
 }
 
-h1 {
-    color: #eb45d0;
+.about-container h1 {
+    color: #7d1c98;
+    font-size: 28px;
     font-family: "Exo", serif;
-    font-size: 30px;
-    font-weight:900;
-    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Grid for About Info */
+.about-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* About Info Cards */
+.about-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    color: #333;
+}
+
+.about-card i {
+    font-size: 35px;
+    color: #6a1b9a;
     margin-bottom: 10px;
 }
 
-p {
-    color: #420f5c;
-    font-family: 'Raleway', sans-serif;
+.about-card h3 {
     font-size: 18px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
-
-.buttons {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.buttons button {
-    background: #65218d;
-    color: white;
-    font-size: 16px;
+    color: #6a1b9a;
     font-family: "Exo", serif;
     font-weight: bold;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
-.buttons button:hover {
-    background: #e772e9;
-    transform: scale(1.08);
+.about-card p {
+    font-size: 14px;
+    font-family: "Exo", serif;
+    color: #555;
 }
 

@@ -86,7 +86,9 @@ body {
 .container h1 {
     color: #7d1c98;
     font-size: 30px;
+    font-family: "Exo", serif;
     font-weight:bolder;
+    text-transform: uppercase;
     margin-bottom: 25px;
 }
 
@@ -110,6 +112,7 @@ body {
 
 .bid-section h3 {
     color: #6a1b9a;
+    font-family: "Exo", serif;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -146,6 +149,7 @@ body {
 
 .withdraw-section h3 {
     color: #6a1b9a;
+    font-family: "Exo", serif;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -166,7 +170,7 @@ body {
 }
 
 .withdraw-section button:hover {
-    background: #4a0072;
+    background: #a910d3;
     transform: scale(1.05);
 }
 
@@ -186,6 +190,7 @@ body {
 
 .listing-info h3 {
     color: #6a1b9a;
+    font-family: "Exo", serif;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -193,6 +198,7 @@ body {
 
 .listing-info p {
     font-size: 14px;
+    font-family: "Exo", serif;
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
@@ -256,6 +262,8 @@ button {
 }
 
 button:hover {
-    background: #8551cd;
+    background: #a910d3;
     transform: scale(1.03);
 }
+
+
