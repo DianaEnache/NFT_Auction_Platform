@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../images/galaxy11.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Centered Panel */
+.container-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 30%; /* Reduced width for a smaller panel */
+    min-width: 350px; /* Ensures it doesn’t get too small */
+    
+    /* Centering */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Title Styling */
+h1 {
+    color: #6a1b9a;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Input & Button Group */
+.input-group {
+    margin: 12px 0;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #6a1b9a;
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #6a1b9a;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.input-group button {
+    margin-top: 12px; /* Added spacing */
+}
+
+
+button:hover {
+    background: #4a0072;
+    transform: scale(1.05);
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background: rgba(36, 3, 68, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar Logo */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}

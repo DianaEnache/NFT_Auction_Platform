@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Auction Platform</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> NFT Auction
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner.html">Owner</a></li>
+                <li><a href="user.html">User</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="home-container">
+        <h1>Welcome to NFT Auction Platform</h1>
+        <p>Buy, Sell, and Auction Exclusive NFTs</p>
+        <div class="buttons">
+            <button onclick="navigateTo('owner.html')">Owner</button>
+            <button onclick="navigateTo('user.html')">User</button>
+        </div>
+    </section>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

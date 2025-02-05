@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner - NFT Auction Platform</title>
+    <link rel="stylesheet" href="css/owner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> NFT Auction
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner.html">Owner</a></li>
+                <li><a href="user.html">User</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-panel">
+        <h1>Owner Panel</h1>
+        <div class="input-group">
+            <h3>End Auction/Listing</h3>
+                <input type="number" id="listing-id-end" placeholder="Listing ID" min="0"/>
+                <button onclick="end()">End</button>
+        </div>
+        <div class="input-group">
+            <h3>Approve auction</h3>
+                <input type="number" id="token-id-approve" placeholder="NFT Token ID" min="0"/> 
+                <br/>
+                <button onclick="approve()">Approve Transfer</button>
+        </div>
+        <div class="input-group">
+            <h3>List NFT</h3>
+                <input type="number" id="tokenId" placeholder="Token ID" min="0"/>
+                <br/>
+                <input type="number" id="min-price-list" placeholder="Minimum price" min="0"/>   
+                <br/>
+                <input type="number" id="list-duration" placeholder="Duration (minutes)"/>
+                <br/>
+                <button onclick="list()">List NFT</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
