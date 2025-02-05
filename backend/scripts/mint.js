@@ -16,7 +16,7 @@ async function main() {
     console.log(`Minting NFT on contract: ${minty.target}`);
 
     // Mint an NFT
-    const tx = await minty.mintToken(owner.address, "ipfs://metadata_url");
+    const tx = await minty.mintToken(owner.address, "ipfs://bafkreidh2l3vzvpp5x3bgvgy4sdq7xt44b33rqacnnvgrxldbgvii4abgm");
     await tx.wait();
     console.log(`✅ NFT minted successfully for ${owner.address}`);
 }

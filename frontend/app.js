@@ -48,21 +48,25 @@ async function getAccess(){
     auctionContract = new ethers.Contract(auctionAddress, auctionAbi, signer);
 }
 
-async function list(){
+
+async function list() {
     await getAccess();
     const id = document.getElementById("tokenId").value;
     const minPrice = document.getElementById("min-price-list").value;
     const duration = document.getElementById("list-duration").value;
-    
-    console.log("Listing NFT:", id, "Min Price:", minPrice, "Duration:", duration, "minutes");
 
-    await auctionContract.list(nftAddress, id, minPrice, duration)
-        .then(() => alert("Succes! NFT Listed."))
-        .catch((error) =>{
-            console.error("List Error:", error);
-            if (error.data) alert(error.data.message);
-            else alert(error);
-        });
+    console.log("📢 Listing NFT:", id, "Min Price:", minPrice, "Duration:", duration, "minutes");
+
+    try {
+        let tx = await auctionContract.list(nftAddress, id, minPrice, duration);
+        await tx.wait();
+        alert("✅ Success! NFT Listed.");
+
+    } catch (error) {
+        console.error("❌ List Error:", error);
+        if (error.data) alert(error.data.message);
+        else alert(error);
+    }
 }
 
 
@@ -94,20 +98,30 @@ async function approve(){
     const id = document.getElementById("token-id-approve").value;
     console.log("Approving NFT ID:", id, " for auction contract:", auctionAddress);
 
-    await nftContract.approve(auctionAddress, id)
-        .then(async () => {
-            console.log("Succes! NFT Approved.");
-            // Verificare dacă NFT-ul a fost aprobat
-            const approvedAddress = await nftContract.getApproved(id);
-            console.log(`Approval check: NFT ID ${id} approved for ${approvedAddress}`);
-            alert("Succes! NFT Approved.");
-        })
-        .catch((error) =>{
-            console.error("Approve Error:", error);
-            if (error.data) alert(error.data.message);
-            else alert(error);
-        });
+    try {
+        let tx = await nftContract.approve(auctionAddress, id);
+        console.log("⏳ Waiting for transaction confirmation...");
+        await tx.wait(); // Așteaptă ca tranzacția să fie validată pe blockchain
+
+        console.log("✅ Success! NFT Approved.");
+
+        // Acum verifică aprobarea
+        const approvedAddress = await nftContract.getApproved(id);
+        console.log(`🔍 Approval check: NFT ID ${id} approved for ${approvedAddress}`);
+
+        if (approvedAddress.toLowerCase() === auctionAddress.toLowerCase()) {
+            alert("✅ NFT Approved successfully!");
+        } else {
+            alert("⚠️ Approval did not go through.");
+        }
+
+    } catch (error) {
+        console.error("❌ Approve Error:", error);
+        if (error.data) alert(error.data.message);
+        else alert(error);
+    }
 }
+
 
 
 
@@ -120,23 +134,90 @@ async function withdrawFunds(){
         });
 }
 
-async function view(){
+async function view(listingId = null) {
     await getAccess();
-    const id = document.getElementById("listing-id-view").value;
-    const result = await auctionContract.getListing(id)
-       .catch((error) =>{
-        if (error.data) alert(error.data.message);
-        else alert(error);
-    });
 
-    if (!result) return;
-    document.getElementById("contract-address").innerHTML = result[0];
-    document.getElementById("nft-id").innerHTML = result[1];
-    document.getElementById("current-bid").innerHTML = result[2];
-    document.getElementById("min-price-view").innerHTML = result[3];
-    document.getElementById("end-time-view").innerHTML = new Date(result[4].toNumber() * 1000);
+    // Dacă `listingId` nu e dat ca parametru, îl ia din input
+    if (listingId === null) {
+        listingId = document.getElementById("listing-id-view").value;
+    }
 
+    if (!listingId || isNaN(listingId) || listingId < 0) {
+        console.error("⚠️ Invalid Listing ID:", listingId);
+        alert("Please enter a valid Listing ID!");
+        return;
+    }
+
+    console.log("Fetching NFT data for Listing ID:", listingId);
+
+    try {
+        // Fetch auction listing details
+        const listing = await auctionContract.getListing(listingId);
+        if (!listing) {
+            console.error("No listing found for this ID!");
+            return;
+        }
+
+        const nftContractAddress = listing[0];
+        const nftId = listing[1].toNumber();
+        const highestBid = listing[2];
+        const minPrice = listing[3];
+        const endTime = new Date(listing[4].toNumber() * 1000).toLocaleString();
+
+        console.log("✅ Listing details:", {
+            "NFT Contract": nftContractAddress,
+            "NFT ID": nftId,
+            "Highest Bid": highestBid,
+            "Min Price": minPrice,
+            "End Time": endTime
+        });
+
+        // Update HTML elements with listing details
+        document.getElementById("contract-address").innerText = nftContractAddress;
+        document.getElementById("nft-id").innerText = nftId;
+        document.getElementById("current-bid").innerText = highestBid;
+        document.getElementById("min-price-view").innerText = minPrice;
+        document.getElementById("end-time-view").innerText = endTime;
+
+        // Obține metadata NFT
+        const metadataURI = await nftContract.tokenURI(nftId);
+        console.log("Metadata URI from contract:", metadataURI);
+
+        if (!metadataURI) {
+            console.error("No metadata found for this NFT!");
+            return;
+        }
+
+        const metadataURL = metadataURI.replace("ipfs://", "https://ipfs.io/ipfs/");
+        console.log("Fetching metadata from:", metadataURL);
+
+        const response = await fetch(metadataURL);
+        if (!response.ok) {
+            console.error("❌ Failed to fetch metadata:", response.statusText);
+            return;
+        }
+
+        const metadata = await response.json();
+        console.log("✅ Fetched metadata:", metadata);
+
+        if (!metadata.image) {
+            console.error("❌ No image found in metadata!");
+            return;
+        }
+
+        const imageURL = metadata.image.replace("ipfs://", "https://ipfs.io/ipfs/");
+        console.log("Displaying image from:", imageURL);
+
+        document.getElementById("nft-image").src = imageURL;
+        document.getElementById("nft-name").innerText = metadata.name || "No Name Available";
+        document.getElementById("nft-desc").innerText = metadata.description || "No Description Available";
+
+    } catch (error) {
+        console.error("❌ Error fetching NFT data:", error);
+    }
 }
+
+
 
 async function setupEventListeners() {
     await getAccess();

@@ -66,13 +66,23 @@
         </div>
         <div class="row">
             <div class="item">
-                <h3>View Listing Info</h3>
-                <p>NFT Contract: <span id="contract-address"></span></p>
-                <p>NFT ID: <span id="nft-id"></span></p>
-                <p> Bid: <span id="current-bid"></span></p>
-                <p>Min price: <span id="min-price-view"></span></p>
-                <p>End Time: <span id="end-time-view"></span></p>
-
+                <div>
+                    <h3>Listing Details</h3>
+                    <p><strong>NFT Contract Address:</strong> <span id="contract-address"></span></p>
+                    <p><strong>NFT ID:</strong> <span id="nft-id"></span></p>
+                    <p><strong>Current Highest Bid:</strong> <span id="current-bid"></span> ETH</p>
+                    <p><strong>Minimum Price:</strong> <span id="min-price-view"></span> ETH</p>
+                    <p><strong>Auction Ends:</strong> <span id="end-time-view"></span></p>
+                </div>
+                
+                <div>
+                    <h3>NFT Details</h3>
+                    <img id="nft-image" src="" alt="NFT Image" width="300">
+                    <p><strong>Name:</strong> <span id="nft-name"></span></p>
+                    <p><strong>Description:</strong> <span id="nft-desc"></span></p>
+                </div>
+                
+<!--  -->
                 <div>
                     <input type="number" id="listing-id-view" placeholder="Listing ID" min="0"/>
                     <button onclick="view()">View Listing</button>
