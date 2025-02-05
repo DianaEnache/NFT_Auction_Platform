@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "ethers": "^6.13.5"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

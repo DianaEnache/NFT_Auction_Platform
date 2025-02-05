@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner - NFT Auction Platform</title>
+    <link rel="stylesheet" href="css/owner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!--Fonts-->
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> NFT Auction
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="owner.html"><i class="fas fa-user-tie"></i> Owner</a></li>
+                <li><a href="user.html"><i class="fas fa-users"></i> Buyer</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="Balance.html"><i class="fas fa-coins"></i> Balance</a></li>
+            </ul>
+        </div>
+    </nav>
+        <div class="container-panel">
+            <h1>List NFT</h1>
+            <div class="input-group">
+                <input type="number" id="tokenId" placeholder="Token ID"/>
+                <input type="number" id="min-price-list" placeholder="Minimum Price" />   
+                <input type="number" id="list-duration" placeholder="Duration (minutes)"/>
+                <button onclick="list()">List NFT</button>
+            </div>
+            <div class="next-button">
+                <button onclick="goToNextPage()">Next</button>
+            </div>
+        </div>
+
+    
+
+        <script>
+            function goToNextPage() {
+                window.location.href = "endAuction.html"; 
+            }
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

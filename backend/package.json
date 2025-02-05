@@ -1,0 +1,26 @@
+{
+  "name": "nft-auction-platform",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nft",
+    "auction",
+    "platform"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "A platform for NFT auctions.",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "ethers": "^6.13.5",
+    "hardhat": "^2.22.18"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6"
+  }
+}

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../images/galaxy11.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Navbar Styling*/
+.navbar {
+    width: 100%;
+    background: rgba(36, 3, 68, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* About Page Container */
+.about-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 70%;
+    max-width: 900px;
+    margin-top: 120px;
+}
+
+.about-container h1 {
+    color: #7d1c98;
+    font-size: 28px;
+    font-family: "Exo", serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+.about-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+
+.about-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    color: #333;
+}
+
+.about-card i {
+    font-size: 35px;
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    font-size: 18px;
+    color: #6a1b9a;
+    font-family: "Exo", serif;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    font-size: 14px;
+    font-family: "Exo", serif;
+    color: #555;
+}
+

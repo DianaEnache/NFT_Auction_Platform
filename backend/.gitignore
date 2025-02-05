@@ -1,0 +1,9 @@
+# Ignore node_modules and other generated files in backend
+backend/node_modules/
+backend/package-lock.json
+backend/artifacts/
+backend/cache/
+backend/deployments/
+
+# Environment files
+backend/.env

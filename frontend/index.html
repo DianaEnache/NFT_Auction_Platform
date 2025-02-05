@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Auction Platform</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> <strong>NFT Auction</strong>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="owner.html"><i class="fas fa-user-tie"></i> Owner</a></li>
+                <li><a href="user.html"><i class="fas fa-users"></i> Buyer</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="Balance.html"><i class="fas fa-coins"></i> Balance</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="home-container">
+        <h1><i class="fas fa-crown"></i> <strong>WELCOME TO NFT AUCTION PLATFORM</strong> <i class="fas fa-crown"></i></h1>
+        <p><i class="fas fa-shopping-cart"></i> Buy, Sell, and Auction <strong>Exclusive NFTs</strong></p>
+        <div class="buttons">
+            <button onclick="navigateTo('owner.html')"><i class="fas fa-user-tie"></i> NFT OWNER</button>
+            <button onclick="navigateTo('user.html')"><i class="fas fa-user"></i> NFT BUYER</button>
+           
+        </div>
+    </section>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
