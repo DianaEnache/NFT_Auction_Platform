@@ -1,4 +1,3 @@
-// filepath: /d:/fmi/an3/blockchain/NFT_Auction_Platform/backend/contracts/Minty.sol
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 

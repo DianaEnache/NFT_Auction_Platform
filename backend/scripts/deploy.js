@@ -30,8 +30,8 @@ async function deployContract() {
 async function writeDeploymentInfo(contract, filename) {
     const data = {
         contract: {
-            address: contract.target, // Corrected from contract.address
-            signerAddress: contract.runner.address, // Updated from signer
+            address: contract.target, 
+            signerAddress: contract.runner.address, 
             abi: contract.interface.format()
         }
     };

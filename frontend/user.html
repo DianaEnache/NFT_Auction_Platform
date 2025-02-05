@@ -55,7 +55,17 @@
                 <p><strong>Bid:</strong> <span id="current-bid"></span></p>
                 <p><strong>Min price:</strong> <span id="min-price-view"></span></p>
                 <p><strong>End Time:</strong> <span id="end-time-view"></span></p>
-                <input type="number" id="listing-id-view" placeholder="Listing ID" min="0"/>
+
+                
+                <div class="nft-container">
+                    <img id="nft-image" src="" alt="NFT Image" width="100" height="150" />
+                    <div>
+                        <p><strong>Name:</strong> <span id="nft-name"></span></p>
+                        <p><strong>Description:</strong> <span id="nft-desc"></span></p>
+                    </div>
+                </div>
+
+                <input type="number" id="listing-id-view" placeholder="Listing ID"/>
                 <button onclick="view()">View Listing</button>
             </div>
         </div>

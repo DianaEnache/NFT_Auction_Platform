@@ -1,11 +1,10 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+
 body {
     font-family: 'Poppins', sans-serif;
     background: url('../images/galaxy11.jpeg') no-repeat center center fixed;
@@ -16,6 +15,7 @@ body {
     align-items: center;
 }
 
+/*Navbar Styling*/
 .navbar {
     width: 100%;
     background: rgba(36, 3, 68, 0.9);
@@ -35,7 +35,6 @@ body {
     align-items: center;
 }
 
-/* Navbar Logo */
 .logo {
     font-size: 22px;
     font-weight: bold;
@@ -48,7 +47,7 @@ body {
     margin-right: 10px;
 }
 
-/* Navbar Links */
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -98,7 +97,7 @@ body {
     line-height: 1.6;
 }
 
-/* Grid for About Info */
+
 .about-grid {
     display: flex;
     justify-content: space-between;
@@ -106,7 +105,7 @@ body {
     gap: 20px;
 }
 
-/* About Info Cards */
+
 .about-card {
     background: white;
     padding: 25px;
