@@ -4,7 +4,7 @@
 
 ### 1️⃣ **Clonarea Proiectului**
 ```bash
-git clone https://github.com/username/repository.git
+git clone https://github.com/DianaEnache/NFT_Auction_Platform
 cd repository
 ```
 
